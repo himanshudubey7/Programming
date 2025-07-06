@@ -1,0 +1,1 @@
+{"name":"Local: tru","url":"c:\\Users\\Administrator\\Desktop\\programming\\tru.cpp","tests":[{"id":1708181023656,"input":"3\n1\n2 3\n2\n1 1 2 1\n3\n1 1 1 1 1 1","output":"2\n2\n3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Administrator\\Desktop\\programming\\tru.cpp","group":"local","local":true}

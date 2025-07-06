@@ -1,0 +1,144 @@
+//author: Ghostyy :D
+# include<bits/stdc++.h>
+using namespace std;
+#define ll long long 
+#define fast ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+ll mod = 1000000007;
+
+
+//--------------------------------------------------------------------------------------------------
+//binary exponentiation
+int exp(int base,int n){
+ int res=1;
+ while(n){
+     if(n%2){
+         res=res*base;
+         n--;
+     }
+     else{
+         base*=base;
+         n/=2;
+     }
+ }
+ return res;
+}
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+//sieve of erastothenes
+vector<int> primes; // stores ith prime number at index i-1
+ll is_prime[1000001];
+
+void sieve() {
+    int maxN = 1000000;
+    for (int i = 1; i <= maxN; i++) is_prime[i] = 1;
+    is_prime[0] = is_prime[1] = 0;
+
+    for (int i = 2; i * i <= maxN; i++) {
+        if (is_prime[i]) {
+            for (int j = i * i; j <= maxN; j += i) {
+                is_prime[j] = 0;
+            }
+        }
+    }
+    for (int i = 2; i <= maxN; i++) {
+        if (is_prime[i]) primes.push_back(i);
+    }
+}
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+//primality check - checks if a number is prime or not
+bool isPrime(int n){
+ if(n==1) return false;
+ for(int i=2;i*i<=n;i++){
+     if(n%i==0) return false;
+ }
+ return true;
+}
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+// An iterative binary search function and return  the index. 
+int binarySearch(int arr[], int l, int r, int x)
+{
+    while (l <= r) {
+        int m = l + (r - l) / 2;
+        if (arr[m] == x)
+            return m;
+        if (arr[m] < x)
+            l = m + 1;
+        else
+            r = m - 1;
+    }
+    return -1;
+}
+//--------------------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------------------------
+void solve(){
+    vector<ll> v[31];
+    for(int i = 1;i<=31;i++){// loop for periodicity
+        ll k = i;
+        ll temp = (1<<i)-1;// temp = 1;
+        ll first = temp;
+        v[i].push_back(temp);
+        int flag = 0;
+        while((k+i)<=31){
+
+        ll s= temp* (1<<i);
+       if(flag ==0) {
+        flag =1;
+       }
+       else if(flag ==1) {
+        s+=(first);
+        flag =0;
+       }
+       
+        v[i].push_back(s);
+        temp = s;
+        k+=i;
+        }
+    }
+  ll t;
+    cin>>t;
+    while(t--){
+      for(int i = 1;i<=31;i++){
+        cout<<i<<endl;
+       for(auto it: v[i]){
+        cout<<it<<" ";
+       }
+      cout<<endl;
+      }
+ 
+    // ll l , r;
+    // cin>>l>>r;
+    // ll ind = 0;
+    // for(int i= 31 ;i>=0;i--){
+    //     if((1<<i&r)){
+    //         ind = (i+1);
+    //     }
+    // }
+    // ll ans= 0;
+    // for(int i= 1;i<=ind+1;i++){
+    //     for(auto it : v[i]){
+    //         if(it<=r && it>=l){
+    //             ans++;
+    //             // cout<<it<<" ";
+    //         }
+    //     }
+    // }
+    // cout<<ans<<endl;
+
+
+    }
+
+
+
+}
+
+//--------------------------------------------------------------------------------------------------
+int main()
+{
+ fast
+solve();
+return 0;
+  
+}

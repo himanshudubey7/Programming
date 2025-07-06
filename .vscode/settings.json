@@ -1,0 +1,9 @@
+{
+  "files.associations": {
+    "iostream": "cpp",
+    "2_.C": "cpp",
+    "ostream": "cpp",
+    "stdio.h": "c",
+    "cstdlib": "cpp"
+  }
+}
